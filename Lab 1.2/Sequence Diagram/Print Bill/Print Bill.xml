@@ -1,0 +1,20 @@
+@startuml
+title Print Bill
+
+Actor Employee
+participant BillingSystem
+participant Printer
+
+Employee-> BillingSystem: Request to print bill
+activate Employee
+activate BillingSystem
+
+BillingSystem -> Printer: Send bill to printer
+activate Printer
+Printer --> BillingSystem: Confirm bill printing
+deactivate Printer
+
+BillingSystem --> Employee: Confirm bill printing
+deactivate BillingSystem
+deactivate Employee
+@enduml

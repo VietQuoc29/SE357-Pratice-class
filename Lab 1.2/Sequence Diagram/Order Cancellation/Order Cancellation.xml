@@ -1,0 +1,18 @@
+@startuml
+title Order Cancellation
+
+actor Customer
+participant FastFoodSystem
+participant PaymentGateway
+
+Customer -> FastFoodSystem: Places an order
+FastFoodSystem -> FastFoodSystem: Process the order
+
+Customer -> FastFoodSystem: Requests order cancellation
+FastFoodSystem -> FastFoodSystem: Verify cancellation request
+FastFoodSystem -> PaymentGateway: Initiate refund process
+PaymentGateway --> FastFoodSystem: Confirm refund completion
+FastFoodSystem -> FastFoodSystem: Update order status to "Cancelled"
+FastFoodSystem --> Customer: Send order cancellation confirmation
+
+@enduml

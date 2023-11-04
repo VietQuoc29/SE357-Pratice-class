@@ -1,0 +1,44 @@
+@startuml
+title CRUD store information
+
+actor Admin
+participant System
+Database Database
+
+Admin -> System: Create Store Information
+activate System
+System -> Database: Save Store Information
+activate Database
+Database --> System: Confirmation
+deactivate Database
+System --> Admin: Success Message
+deactivate System
+
+Admin -> System: Read Store Information
+activate System
+System -> Database: Retrieve Store Information
+activate Database
+Database --> System: Clinic Information Data
+deactivate Database
+System --> Admin: Clinic Information
+deactivate System
+
+Admin -> System: Update Store Information
+activate System
+System -> Database: Modify Store Information
+activate Database
+Database --> System: Confirmation
+deactivate Database
+System --> Admin: Success Message
+deactivate System
+
+Admin -> System: Delete Store Information
+activate System
+System -> Database: Remove Store Information
+activate Database
+Database --> System: Confirmation
+deactivate Database
+System --> Admin: Success Message
+deactivate System
+
+@enduml

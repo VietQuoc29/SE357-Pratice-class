@@ -1,0 +1,18 @@
+@startuml
+title Customer Initiating Chat
+
+actor Customer
+participant ChatClient
+participant ChatServer
+participant Employee
+
+Customer -> ChatClient: Clicks on chat button
+ChatClient -> ChatServer: Establish connection request
+ChatServer -> Employee: New chat request from Customer
+Employee -> ChatServer: Accepts chat request
+ChatServer --> ChatClient: Connection established
+ChatClient -> ChatServer: Sends initial message
+ChatServer --> Employee: Customer's initial message
+Employee --> ChatServer: Responds to Customer's message
+ChatServer --> ChatClient: Employee's response
+@enduml

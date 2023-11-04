@@ -1,0 +1,27 @@
+@startuml
+title Manage Cart
+
+actor Customer
+participant CartController
+participant Cart
+
+Customer -> CartController: Request to view cart
+CartController -> Cart: Retrieve cart items
+Cart --> CartController: List of cart items
+CartController --> Customer: Display cart items
+
+Customer -> CartController: Add item to cart
+CartController -> Cart: Add item to cart
+Cart --> CartController: Updated cart items
+CartController --> Customer: Cart updated message
+
+Customer -> CartController: Remove item from cart
+CartController -> Cart: Remove item from cart
+Cart --> CartController: Updated cart items
+CartController --> Customer: Cart updated message
+
+Customer -> CartController: Clear all items from cart
+CartController -> Cart: Clear all items from cart
+Cart --> CartController: Empty cart
+CartController --> Customer: Cart cleared message
+@enduml

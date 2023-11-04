@@ -1,0 +1,14 @@
+@startuml
+Title watch order history
+
+actor user
+participant System
+
+user -> System: Select history
+activate user
+activate System
+System -> System: Query customer's order history
+System --> user: Display customer's order history
+deactivate System
+deactivate user
+@enduml

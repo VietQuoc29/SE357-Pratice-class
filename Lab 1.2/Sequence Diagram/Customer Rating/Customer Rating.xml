@@ -1,0 +1,14 @@
+@startuml
+title Customer Rating
+
+actor Customer
+participant RatingController
+database Database
+
+Customer -> RatingController: Request to rate the experience
+RatingController -> Customer: Display rating options (e.g., stars, feedback form)
+Customer -> RatingController: Provide rating and feedback
+RatingController -> Database: Save rating and feedback
+Database --> RatingController: Confirmation of saved rating
+RatingController -> Customer: Thank you message for rating
+@enduml

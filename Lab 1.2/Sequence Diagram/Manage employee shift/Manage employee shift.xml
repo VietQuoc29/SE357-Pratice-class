@@ -1,0 +1,22 @@
+@startuml
+title Manage Schedule of Employee Sequence Diagram
+
+Actor Admin
+participant ShiftingSystem
+participant Employee
+
+Admin -> ShiftingSystem: Creates or updates employee shift
+activate Admin
+activate ShiftingSystem
+
+ShiftingSystem -> Employee: Sends notification of updated shift
+activate Employee
+Employee --> ShiftingSystem: Confirms or disputes shift update
+deactivate Employee
+ShiftingSystem --> Admin: Confirms or disputes shift update
+Admin -> ShiftingSystem: Approves or denies shift update
+ShiftingSystem -> Employee: Confirms or denies shift update
+activate Employee
+deactivate ShiftingSystem
+deactivate Admin
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+Title Generate Report
+Actor Admin
+participant System
+participant ReportGenerator
+
+Admin -> System: Requests to generate report
+activate Admin
+activate System
+System -> ReportGenerator: Sends request to generate report
+activate ReportGenerator
+ReportGenerator --> System: Returns report
+deactivate ReportGenerator
+System --> Admin: Displays report
+deactivate Admin
+deactivate System
+@enduml

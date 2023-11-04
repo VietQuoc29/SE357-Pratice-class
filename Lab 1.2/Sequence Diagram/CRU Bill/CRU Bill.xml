@@ -1,0 +1,18 @@
+@startuml
+title Create and Update Bill Status
+
+actor Customer
+participant Employee
+participant BillingSystem
+
+Customer -> Employee: Requests a bill
+Employee -> BillingSystem: Generates the bill
+BillingSystem --> Employee: Bill details
+Employee --> Customer: Presents the bill to the customer
+
+Customer -> Employee: Requests bill status update
+Employee -> BillingSystem: Checks bill payment status
+BillingSystem --> Employee: Bill payment status
+Employee --> Customer: Bill status (Paid/Unpaid)
+
+@enduml

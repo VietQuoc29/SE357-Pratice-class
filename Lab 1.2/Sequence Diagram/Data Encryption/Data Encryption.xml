@@ -1,0 +1,14 @@
+@startuml
+title Data Encryption
+
+actor User
+participant Application
+participant EncryptionModule
+
+User -> Application: Sends data to be encrypted
+Application -> EncryptionModule: Requests data encryption
+EncryptionModule -> EncryptionModule: Generates encryption key
+EncryptionModule -> EncryptionModule: Encrypts the data using the key
+EncryptionModule --> Application: Returns encrypted data
+Application --> User: Receives encrypted data
+@enduml

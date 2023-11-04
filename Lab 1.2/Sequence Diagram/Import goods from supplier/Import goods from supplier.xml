@@ -1,0 +1,18 @@
+@startuml
+title Import Goods from Supplier
+
+actor Admin
+participant InventorySystem
+participant Supplier
+participant DeliveryService
+
+Admin -> InventorySystem: Initiates goods import request
+InventorySystem -> Supplier: Places order for goods
+Supplier --> InventorySystem: Confirms order and provides delivery details
+InventorySystem -> DeliveryService: Schedules delivery
+DeliveryService --> Supplier: Dispatches goods for delivery
+Supplier --> DeliveryService: Goods for delivery
+DeliveryService --> InventorySystem: Confirms goods received
+InventorySystem --> Admin: Notifies goods import completion
+
+@enduml

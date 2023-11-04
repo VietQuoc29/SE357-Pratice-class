@@ -1,0 +1,41 @@
+@startuml
+title CRUD Voucher
+
+Actor Admin
+participant VoucherSystem
+
+Admin-> VoucherSystem : Create voucher
+activate Admin
+activate VoucherSystem
+VoucherSystem --> Admin: Confirm voucher creation
+deactivate VoucherSystem
+deactivate Admin
+
+Admin -> VoucherSystem : Get all vouchers
+activate Admin
+activate VoucherSystem
+VoucherSystem --> Admin: Send all vouchers
+deactivate VoucherSystem
+deactivate Admin
+
+Admin -> VoucherSystem : Get specific voucher
+activate Admin
+activate VoucherSystem
+VoucherSystem --> Admin: Send specific voucher
+deactivate VoucherSystem
+deactivate Admin
+
+Admin -> VoucherSystem : Update voucher
+activate Admin
+activate VoucherSystem
+VoucherSystem --> Admin : Confirm voucher update
+deactivate VoucherSystem
+deactivate Admin
+
+Admin-> VoucherSystem : Delete voucher
+activate Admin
+activate VoucherSystem
+VoucherSystem --> Admin : Confirm voucher deletion
+deactivate VoucherSystem
+deactivate Admin
+@enduml

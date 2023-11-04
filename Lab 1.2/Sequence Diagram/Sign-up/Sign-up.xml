@@ -1,0 +1,19 @@
+@startuml
+title Sign-Up
+
+actor Customer
+participant FastFoodSystem
+participant Database
+participant EmailService
+
+Customer -> FastFoodSystem: Enters sign-up details
+FastFoodSystem -> Database: Check if email is unique
+Database --> FastFoodSystem: Email availability status
+FastFoodSystem -> FastFoodSystem: Generate unique customer ID
+FastFoodSystem -> Database: Store customer information
+Database --> FastFoodSystem: Confirmation of customer data storage
+FastFoodSystem -> EmailService: Send verification email
+EmailService --> FastFoodSystem: Email sent confirmation
+FastFoodSystem --> Customer: Display sign-up success message
+
+@enduml

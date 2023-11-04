@@ -1,0 +1,73 @@
+@startuml
+title Fast Food System Class Diagram
+
+class User {
+  + username: string
+  + password: string
+}
+
+class Admin {
+  + manageEmployees()
+  + manageOrders()
+  + manageMenu()
+  + generateReports()
+}
+
+class Customer {
+  + browseMenu()
+  + placeOrder()
+  + makePayment()
+  + viewOrderStatus()
+}
+
+class Employee {
+  + takeOrder()
+  + processOrder()
+  + completeOrder()
+}
+
+class Menu {
+  + items: List<Item>
+  + addItem(item: Item)
+  + removeItem(item: Item)
+}
+
+class Item {
+  + itemID: int
+  + itemName: string
+  + price: float
+}
+
+class Order {
+  + orderID: int
+  + status: string
+  + items: List<Item>
+  + totalAmount: float
+  + customer: Customer
+  + employee: Employee
+
+  + addItem(item: Item)
+  + removeItem(item: Item)
+  + calculateTotalAmount()
+  + updateStatus()
+}
+
+class Payment {
+  + paymentID: int
+  + amount: float
+  + paymentStatus: string
+  + order: Order
+
+  + processPayment()
+}
+
+Admin --|> User
+Customer --|> User
+Employee --|> User
+Admin -- Menu
+Admin -- Order
+Admin -- Payment
+Admin -- Employee
+Order *-- Item
+Payment -- Order
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+title Order Shipping Status
+
+actor Customer
+participant Order
+participant ShippingController
+participant ShippingService
+
+Customer -> Order: Request to track shipping status
+Order -> ShippingController: Request shipping status
+ShippingController -> ShippingService: Query shipping status for the order
+ShippingService --> ShippingController: Shipping status information
+ShippingController --> Order: Shipping status information
+Order --> Customer: Display shipping status to the customer
+@enduml

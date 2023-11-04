@@ -1,0 +1,24 @@
+@startuml
+title CRUD Menu
+
+actor Admin
+participant MenuController
+participant MenuDatabase
+
+Admin -> MenuController: Request to manage menu
+MenuController -> MenuDatabase: Retrieve current menu items
+MenuDatabase --> MenuController: Current menu items
+MenuController -> Admin: Display current menu items
+Admin -> MenuController: Add new menu item
+MenuController -> MenuDatabase: Save new menu item
+MenuDatabase --> MenuController: Confirmation of item addition
+MenuController -> Admin: Confirmation of item addition
+Admin -> MenuController: Modify menu item
+MenuController -> MenuDatabase: Update menu item
+MenuDatabase --> MenuController: Confirmation of item modification
+MenuController -> Admin: Confirmation of item modification
+Admin -> MenuController: Remove menu item
+MenuController -> MenuDatabase: Delete menu item
+MenuDatabase --> MenuController: Confirmation of item deletion
+MenuController -> Admin: Confirmation of item deletion
+@enduml

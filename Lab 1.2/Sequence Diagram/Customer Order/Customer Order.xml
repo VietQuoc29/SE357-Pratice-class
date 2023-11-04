@@ -1,0 +1,17 @@
+@startuml
+title Customer Order
+
+actor Customer
+participant OrderController
+participant Menu
+participant Kitchen
+
+Customer -> OrderController: Request to place an order
+OrderController -> Menu: Retrieve menu items
+Menu --> OrderController: List of menu items
+OrderController -> OrderController: Select items from the menu
+OrderController -> Kitchen: Send order details
+Kitchen --> Kitchen: Prepare the order
+Kitchen --> OrderController: Order ready notification
+OrderController -> Customer: Deliver the order to the customer
+@enduml

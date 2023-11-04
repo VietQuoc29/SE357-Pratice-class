@@ -1,0 +1,29 @@
+@startuml
+Title CRUD employee
+actor Admin
+participant System
+Database database
+
+Admin -> System: Sends request to create, read, update, or delete employee information
+activate System
+System -> database: Require to get data
+activate database
+database --> System: Send data
+deactivate database
+System --> Admin: Displays form to create, read, update, or delete employee information
+deactivate System
+
+Admin -> System: Enters employee data
+activate System
+System --> Admin: Confirms employee data
+deactivate System
+
+Admin -> System: Confirms to create, read, update, or delete employee information
+activate System
+System-> database: Save data
+activate database
+database --> System: Confirmation
+deactivate database
+System --> Admin: Returns result of creating, reading, updating, or deleting employee information
+deactivate System
+@enduml

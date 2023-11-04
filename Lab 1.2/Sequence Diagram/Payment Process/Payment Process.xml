@@ -1,0 +1,17 @@
+@startuml
+title Payment Process
+
+actor Customer
+participant CheckoutController
+participant PaymentGateway
+participant CustomerDatabase
+
+Customer -> CheckoutController: Proceed to payment
+CheckoutController -> Customer: Display available payment methods
+Customer -> CheckoutController: Select payment method (e.g., credit card)
+CheckoutController -> PaymentGateway: Initiate payment process
+PaymentGateway -> CustomerDatabase: Verify payment details
+CustomerDatabase --> PaymentGateway: Payment details verification result
+PaymentGateway --> CheckoutController: Payment confirmation
+CheckoutController --> Customer: Payment confirmation message
+@enduml

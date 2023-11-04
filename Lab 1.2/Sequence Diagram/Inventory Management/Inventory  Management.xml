@@ -1,0 +1,20 @@
+@startuml
+title Inventory Management
+
+actor Admin
+participant InventorySystem
+participant Supplier
+
+Admin-> InventorySystem: Request current stock levels
+InventorySystem --> Admin: Current stock levels
+
+Admin-> InventorySystem: Place order for restocking
+InventorySystem -> Supplier: Order request
+Supplier --> InventorySystem: Deliver ordered items
+InventorySystem --> InventorySystem: Update stock levels
+InventorySystem --> Admin: Confirmation of restocking
+
+Admin-> InventorySystem: Request stock level update
+InventorySystem --> InventorySystem: Update stock levels (e.g., after receiving new items)
+InventorySystem --> Admin: Updated stock levels
+@enduml

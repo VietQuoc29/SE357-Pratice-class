@@ -1,0 +1,29 @@
+@startuml
+Title CRUD account information 
+actor Customer
+participant System
+Database database
+
+Customer-> System: Sends request to create, read, update, or delete account information
+activate System
+System -> database: Require to get data
+activate database
+database --> System: Send data
+deactivate database
+System --> Customer: Displays form to create, read, update, or delete account information
+deactivate System
+
+Customer -> System: Enters account data
+activate System
+System --> Customer: Confirms account data
+deactivate System
+
+Customer -> System: Confirms to create, read, update, or delete account information
+activate System
+System-> database: Save data
+activate database
+database --> System: Confirmation
+deactivate database
+System --> Customer: Returns result of creat, read, update, or delete account information
+deactivate System
+@enduml

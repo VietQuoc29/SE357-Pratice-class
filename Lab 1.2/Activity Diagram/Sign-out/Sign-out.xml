@@ -1,0 +1,15 @@
+@startuml
+title Sign-Out
+
+start
+:Customer clicks on "Sign Out" button;
+if (Customer is currently signed in?) then (Yes)
+  :System logs out the customer;
+  :System redirects customer to the home page;
+  :Customer is successfully signed out;
+else (No)
+  :Customer is not signed in;
+  :System displays error message (Not logged in);
+endif
+stop
+@enduml

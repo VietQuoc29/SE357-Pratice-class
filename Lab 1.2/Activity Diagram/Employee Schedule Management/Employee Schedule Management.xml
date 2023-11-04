@@ -1,0 +1,23 @@
+@startuml
+title Employee Schedule Management
+
+start
+:Admin accesses employee scheduling system;
+:Admin selects a date range for scheduling;
+:Admin assigns shifts to employees;
+if (All shifts assigned?) then (Yes)
+  :System generates the employee schedule;
+  :System notifies employees about their shifts;
+else (No)
+  :Continue assigning shifts to employees;
+endif
+:Admin reviews and approves the final schedule;
+if (Schedule approved?) then (Yes)
+  :Finalize the employee schedule;
+  :System displays confirmed schedule to employees;
+else (No)
+  :Make necessary adjustments to the schedule;
+  :Repeat the approval process;
+endif
+stop
+@enduml

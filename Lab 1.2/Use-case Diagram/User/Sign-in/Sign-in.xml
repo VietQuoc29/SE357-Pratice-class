@@ -1,0 +1,13 @@
+@startuml
+actor User as U
+rectangle "User Sign-In" {
+  usecase (Enter Credentials) as UC1
+  usecase (Authenticate User) as UC2
+  usecase (Access System) as UC3
+}
+
+U --> UC1 : Provides Credentials
+UC1 --> UC2 : Submits Credentials
+UC2 --> UC3 : Authenticates User
+UC3 --> U : Grants Access
+@enduml

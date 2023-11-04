@@ -1,0 +1,27 @@
+@startuml
+title Order Cancellation
+
+start
+:Customer places an order;
+:System processes the order;
+:Customer requests order cancellation;
+if (Cancellation request valid?) then (Yes)
+  :Verify cancellation request;
+  if (Refund required?) then (Yes)
+    :Initiate refund process through Payment Gateway;
+    :Wait for refund confirmation;
+    if (Refund successful?) then (Yes)
+      :Update order status to "Cancelled";
+      :Send cancellation confirmation to customer;
+    else (No)
+      :Notify customer about refund failure;
+    endif
+  else (No)
+    :Update order status to "Cancelled";
+    :Send cancellation confirmation to customer;
+  endif
+else (No)
+  :Notify customer about invalid cancellation request;
+endif
+stop
+@enduml

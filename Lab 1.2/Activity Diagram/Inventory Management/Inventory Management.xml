@@ -1,0 +1,16 @@
+@startuml
+title Inventory Management
+
+start
+:Admin checks current stock levels;
+if (Low stock levels?) then (Yes)
+  :Admin places an order for restocking;
+  :Supplier delivers the ordered items;
+  :Admin updates stock levels;
+else (No)
+  :Inventory levels are sufficient;
+endif
+:Admin receives new stock items;
+:Admin updates the inventory system;
+stop
+@enduml

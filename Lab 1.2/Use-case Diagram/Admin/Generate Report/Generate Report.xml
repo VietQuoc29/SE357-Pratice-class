@@ -1,0 +1,17 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor Admin as A
+rectangle "Admin Generate Report" {
+  usecase (Select Report Type) as UC1
+  usecase (Set Date Range) as UC2
+  usecase (Generate Report) as UC3
+  usecase (View Report) as UC4
+}
+
+A --> UC1 : Selects Report Type
+UC1 --> UC2 : Sets Date Range
+UC2 --> UC3 : Generates Report
+UC3 --> UC4 : Views Report
+@enduml

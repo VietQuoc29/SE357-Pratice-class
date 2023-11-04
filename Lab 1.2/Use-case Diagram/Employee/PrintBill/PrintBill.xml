@@ -1,0 +1,12 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor Employee as E
+rectangle "Print Bill" {
+  usecase (Print Bill) as UC1
+}
+
+E -- UC1
+
+@enduml

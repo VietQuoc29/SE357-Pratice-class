@@ -1,0 +1,21 @@
+@startuml
+title Create Bill
+
+start
+:Employee initiates bill creation for the order;
+:Retrieve order details, including items and prices;
+:Calculate subtotal (sum of item prices);
+:Apply discounts or promotions (if any);
+:Calculate total amount (subtotal - discounts);
+:Generate bill with itemized details and total amount;
+:Present bill to customer;
+if (Customer pays in cash?) then (Yes)
+  :Cashier receives payment;
+  :Issue a receipt;
+else (No)
+  :Customer makes payment using a card or digital payment method;
+  :Process electronic payment;
+  :Display payment confirmation;
+endif
+stop
+@enduml

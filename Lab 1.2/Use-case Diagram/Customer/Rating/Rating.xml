@@ -1,0 +1,15 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor Customer as C
+rectangle "Customer Rating" {
+  usecase (View Order History) as UC1
+  usecase (Select Order to Rate) as UC2
+  usecase (Provide Rating and Feedback) as UC3
+}
+
+C --> UC1 : Views Order History
+C --> UC2 : Selects Order to Rate
+C --> UC3 : Provides Rating and Feedback
+@enduml

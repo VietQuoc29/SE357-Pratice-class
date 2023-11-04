@@ -1,0 +1,16 @@
+@startuml
+title Data Encryption
+
+start
+:User provides data to be encrypted;
+:Application requests data encryption;
+if (Encryption key exists?) then (Yes)
+  :Use existing encryption key;
+else (No)
+  :Generate a new encryption key;
+endif
+:Encrypt the data using the encryption key;
+:Return the encrypted data to the Application;
+:Application provides the encrypted data to the User;
+stop
+@enduml

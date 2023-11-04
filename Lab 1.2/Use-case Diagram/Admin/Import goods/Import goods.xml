@@ -1,0 +1,17 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor Admin as A
+rectangle "Admin Import Goods" {
+  usecase (Initiate Goods Import) as UC1
+  usecase (Verify Supplier Details) as UC2
+  usecase (Schedule Delivery) as UC3
+  usecase (Receive Goods) as UC4
+}
+
+A --> UC1 : Initiates Goods Import
+UC1 --> UC2 : Verifies Supplier Details
+UC2 --> UC3 : Schedules Delivery
+UC3 --> UC4 : Receives Goods
+@enduml

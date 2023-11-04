@@ -1,0 +1,30 @@
+@startuml
+title Sign-Up
+
+start
+:Customer initiates sign-up process;
+:Application prompts customer for sign-up details;
+if (Customer provides valid details?) then (Yes)
+  :Validate customer details;
+  if (Details are valid?) then (Yes)
+    :Generate unique customer ID;
+    :Store customer information;
+    :Send verification email to customer;
+    :Wait for email confirmation;
+    if (Email confirmed?) then (Yes)
+      :Customer sign-up successful;
+      :Provide login credentials to customer;
+    else (No)
+      :Customer email not confirmed;
+      :Display verification failure message;
+    endif
+  else (No)
+    :Invalid customer details;
+    :Display error message;
+  endif
+else (No)
+  :Customer provides incomplete or invalid details;
+  :Display error message;
+endif
+stop
+@enduml

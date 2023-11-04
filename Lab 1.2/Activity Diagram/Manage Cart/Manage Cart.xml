@@ -1,0 +1,20 @@
+@startuml
+title Manage Cart
+
+start
+:Customer adds items to the cart;
+:Application displays updated cart contents;
+if (Customer wants to remove items?) then (Yes)
+  :Customer removes items from the cart;
+  :Application updates cart contents;
+else (No)
+  if (Customer wants to update quantity or items?) then (Yes)
+    :Customer updates item quantities or types in the cart;
+    :Application updates cart contents;
+  else (No)
+    :Customer proceeds to checkout;
+    stop
+  endif
+endif
+stop
+@enduml

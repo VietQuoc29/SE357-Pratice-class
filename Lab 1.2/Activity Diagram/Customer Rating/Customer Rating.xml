@@ -1,0 +1,15 @@
+@startuml
+title Customer Rating
+
+start
+:Customer completes order and receives service;
+:Customer is prompted to provide a rating and feedback;
+if (Customer provides rating and feedback) then (Yes)
+  :System records customer's rating and feedback;
+  :System acknowledges receipt of rating and feedback;
+else (No)
+  :Customer chooses not to provide rating or feedback;
+  :System acknowledges customer's choice;
+endif
+stop
+@enduml

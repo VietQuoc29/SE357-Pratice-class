@@ -1,0 +1,19 @@
+@startuml
+title Generate Report
+start
+:User requests to generate a report;
+:Application prompts for report parameters (if any);
+if (Parameters provided?) then (Yes)
+  :Validate report parameters;
+  if (Parameters valid?) then (Yes)
+    :Generate report based on provided parameters;
+    :Display report to the user;
+  else (No)
+    :Display error message for invalid parameters;
+  endif
+else (No)
+  :Generate default report;
+  :Display report to the user;
+endif
+stop
+@enduml

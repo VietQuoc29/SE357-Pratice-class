@@ -1,0 +1,19 @@
+@startuml
+title Chat Interaction
+
+start
+:Customer initiates chat with an employee;
+:Employee receives chat request;
+if (Employee is available to chat?) then (Yes)
+  :Chat session is established;
+  :Employee and customer exchange messages;
+  while (Chat ongoing?) is (Yes)
+    :Employee and customer continue to exchange messages;
+  endwhile (No)
+  :Chat session ends;
+else (No)
+  :Employee is not available;
+  :Customer is informed and can wait or try again later;
+endif
+stop
+@enduml

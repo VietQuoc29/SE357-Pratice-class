@@ -1,0 +1,13 @@
+@startuml
+title Watch Order History
+
+start
+:User initiates request to view order history;
+:Application retrieves order history for the user;
+if (Order history available?) then (Yes)
+  :Display order history to user;
+else (No)
+  :Display message indicating no order history found;
+endif
+stop
+@enduml

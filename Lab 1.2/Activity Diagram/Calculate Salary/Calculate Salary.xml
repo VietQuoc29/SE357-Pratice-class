@@ -1,0 +1,17 @@
+@startuml
+title Calculate Salary
+
+start
+:Employee's attendance and work hours are recorded;
+:Employee's base salary and hourly rate are retrieved;
+:Calculate total worked hours;
+:Calculate basic salary (base salary + (total worked hours * hourly rate));
+if (Employee has overtime hours?) then (Yes)
+  :Calculate overtime pay (overtime hours * overtime rate);
+  :Calculate total salary (basic salary + overtime pay);
+else (No)
+  :Total salary is equal to basic salary;
+endif
+:Generate salary slip;
+stop
+@enduml

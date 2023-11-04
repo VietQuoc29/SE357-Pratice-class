@@ -1,0 +1,24 @@
+@startuml
+title Order Processing
+
+start
+:Customer places an order;
+if (Items available in stock?) then (Yes)
+  :Prepare the order;
+  if (Is it a takeaway order?) then (Yes)
+    :Pack the order for takeaway;
+  else (No)
+    :Serve the order;
+  endif
+else (No)
+  :Notify customer about unavailable items;
+endif
+:Generate Bill;
+:Customer makes payment;
+if (Payment successful?) then (Yes)
+  :Complete the order;
+else (No)
+  :Cancel the order;
+endif
+stop
+@enduml

@@ -1,0 +1,46 @@
+@startuml
+title Online Order
+
+start
+:Customer browses products;
+if (Product selected?) then (Yes)
+  :Add product to cart;
+  :Customer reviews cart items;
+  if (Items reviewed?) then (Yes)
+    :Customer proceeds to checkout;
+    if (Customer logged in?) then (Yes)
+      :Customer provides shipping address and payment details;
+      if (Information correct?) then (Yes)
+        :Process payment;
+        if (Payment successful?) then (Yes)
+          :Generate order confirmation;
+          :Send confirmation email to customer;
+          :Ship the products;
+        else (No)
+          :Display payment error message;
+          stop
+        endif
+      else (No)
+        :Display error message;
+        stop
+      endif
+    else (No)
+      :Ask customer to log in or create an account;
+      if (Customer logs in or registers?) then (Yes)
+        :Proceed with checkout process;
+      else (No)
+        :Display message and stop;
+        stop
+      endif
+    endif
+  else (No)
+    :Continue browsing products or remove items from cart;
+    stop
+  endif
+else (No)
+  :Continue browsing products;
+  stop
+endif
+stop
+@enduml
+  

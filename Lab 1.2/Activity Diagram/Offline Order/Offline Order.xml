@@ -1,0 +1,35 @@
+@startuml
+title Offline Order
+
+start
+:Customer selects items from the menu;
+:Employee takes the order and enters items;
+:Employee calculates the total amount;
+:Customer makes payment;
+if (Payment received?) then (Yes)
+  :Cashier provides a receipt;
+  :Prepare the order;
+  :Notify the kitchen staff;
+  :Customer waits for the order;
+else (No)
+  :Ask customer for payment;
+  if (Payment received?) then (Yes)
+    :Cashier provides a receipt;
+    :Prepare the order;
+    :Notify the kitchen staff;
+    :Customer waits for the order;
+  else (No)
+    :Ask customer again for payment or cancel the order;
+    if (Payment received?) then (Yes)
+      :Cashier provides a receipt;
+      :Prepare the order;
+      :Notify the kitchen staff;
+      :Customer waits for the order;
+    else (No)
+      :Cancel the order;
+    endif
+  endif
+endif
+:Serve the order to the customer;
+stop
+@enduml

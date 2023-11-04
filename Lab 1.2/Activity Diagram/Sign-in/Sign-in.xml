@@ -1,0 +1,19 @@
+@startuml
+title Sign-In
+
+start
+:Customer clicks on "Sign In" button;
+if (Customer enters valid credentials?) then (Yes)
+  :System validates customer's credentials;
+  if (Credentials are valid) then (Yes)
+    :Customer is successfully signed in;
+    :System displays customer's dashboard;
+  else (No)
+    :System displays error message (Invalid credentials);
+  endif
+else (No)
+  :Customer does not enter valid credentials;
+  :System displays error message (Fields cannot be empty);
+endif
+stop
+@enduml

@@ -1,0 +1,31 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor Customer as C
+actor Employee as E
+
+rectangle "Order Process" {
+  usecase (Order Food) as UC1
+  usecase (Customize Order) as UC2
+  usecase (Process Payment) as UC3
+  usecase (View Order Status) as UC4
+  usecase (Chat) as UC5
+  usecase (Rating) as UC6
+  usecase (Print Bill) as UC7
+  usecase (View Order History) as UC15
+}
+
+E --> UC5
+E --> UC7
+
+C --> UC1
+C --> UC5
+C --> UC15
+
+UC1 ..> UC2 : <<include>>
+UC1 ..> UC3 : <<include>>
+UC3 ..> UC4 : <<extend>>
+UC15 ..> UC6: <<extend>>
+
+@enduml

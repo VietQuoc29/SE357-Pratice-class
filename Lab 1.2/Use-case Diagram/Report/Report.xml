@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+
+actor Admin as "Admin"
+actor Employee as "Employee"
+
+rectangle "Report" {
+  usecase "General Report" as UC1
+  usecase "Report base on item" as UC2
+  usecase "Report base on employee" as UC3
+  usecase "View report" as UC4
+}
+
+Admin --> UC1
+Admin --> UC2
+Admin --> UC3
+Admin --> UC4
+
+Employee --> UC2
+Employee --> UC3
+Employee --> UC4
+
+@enduml

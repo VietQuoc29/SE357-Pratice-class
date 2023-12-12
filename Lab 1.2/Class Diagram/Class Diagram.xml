@@ -10,20 +10,30 @@ class Admin {
   + manageEmployees()
   + manageOrders()
   + manageMenu()
+  + manageVoucher()
+  + manageInventory()
+  + importGoods()
   + generateReports()
+  + salaryCalculation()
 }
 
 class Customer {
+  + orders: List<Order>
   + browseMenu()
   + placeOrder()
   + makePayment()
+  + rating()
   + viewOrderStatus()
+  + viewOrderHistory()
+  + chat()
 }
 
 class Employee {
   + takeOrder()
   + processOrder()
   + completeOrder()
+  + printBill()
+  + chat()
 }
 
 class Menu {
@@ -68,6 +78,7 @@ Admin -- Menu
 Admin -- Order
 Admin -- Payment
 Admin -- Employee
-Order *-- Item
+Order o-- Item
+Customer *-- Order
 Payment -- Order
 @enduml

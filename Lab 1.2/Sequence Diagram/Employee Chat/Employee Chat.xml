@@ -1,0 +1,21 @@
+@startuml
+title Employee Chat
+
+actor Employee
+participant ChatClient
+participant ChatServer
+participant Customer
+
+Employee -> ChatClient: Receives message notification
+ChatClient --> Employee: Displays Customer's message
+
+alt Employee is available
+    Employee --> ChatClient: Views Customer's message
+    Employee -> ChatServer: Sends response to Customer
+    ChatServer --> Customer: Delivers Employee's response
+else Employee is not available
+    Employee --> ChatClient: Views Customer's message
+    ChatClient --> Employee: Displays a notice about unavailability
+end
+
+@enduml

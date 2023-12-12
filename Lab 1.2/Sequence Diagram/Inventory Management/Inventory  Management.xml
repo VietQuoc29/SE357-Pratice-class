@@ -5,16 +5,22 @@ actor Admin
 participant InventorySystem
 participant Supplier
 
-Admin-> InventorySystem: Request current stock levels
-InventorySystem --> Admin: Current stock levels
+alt Admin needs to restock
+    Admin-> InventorySystem: Request current stock levels
+    InventorySystem --> Admin: Current stock levels
 
-Admin-> InventorySystem: Place order for restocking
-InventorySystem -> Supplier: Order request
-Supplier --> InventorySystem: Deliver ordered items
-InventorySystem --> InventorySystem: Update stock levels
-InventorySystem --> Admin: Confirmation of restocking
-
-Admin-> InventorySystem: Request stock level update
-InventorySystem --> InventorySystem: Update stock levels (e.g., after receiving new items)
-InventorySystem --> Admin: Updated stock levels
+    alt Stock below reorder level
+        Admin -> InventorySystem: Place order for restocking
+        InventorySystem -> Supplier: Order request
+        Supplier --> InventorySystem: Deliver ordered items
+        InventorySystem --> InventorySystem: Update stock levels
+        InventorySystem --> Admin: Confirmation of restocking
+    else Stock is sufficient
+        InventorySystem --> Admin: Stock is sufficient, no need to restock
+    end
+else Admin does not need to restock
+    Admin-> InventorySystem: Request stock level update
+    InventorySystem --> InventorySystem: Update stock levels (e.g., after receiving new items)
+    InventorySystem --> Admin: Updated stock levels
+end
 @enduml

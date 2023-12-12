@@ -1,5 +1,5 @@
 @startuml
-Title watch order history
+Title Watch Order History
 
 actor user
 participant System
@@ -7,8 +7,14 @@ participant System
 user -> System: Select history
 activate user
 activate System
-System -> System: Query customer's order history
-System --> user: Display customer's order history
+
+alt User has previous orders
+    System -> System: Query customer's order history
+    System --> user: Display customer's order history
+else User has no previous orders
+    System --> user: No order history available
+end
+
 deactivate System
 deactivate user
 @enduml

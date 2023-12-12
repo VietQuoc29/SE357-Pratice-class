@@ -9,10 +9,16 @@ participant Employee
 Customer -> ChatClient: Clicks on chat button
 ChatClient -> ChatServer: Establish connection request
 ChatServer -> Employee: New chat request from Customer
-Employee -> ChatServer: Accepts chat request
-ChatServer --> ChatClient: Connection established
-ChatClient -> ChatServer: Sends initial message
-ChatServer --> Employee: Customer's initial message
-Employee --> ChatServer: Responds to Customer's message
-ChatServer --> ChatClient: Employee's response
+
+alt Employee is available
+    Employee -> ChatServer: Accepts chat request
+    ChatServer --> ChatClient: Connection established
+    ChatClient -> ChatServer: Sends initial message
+    ChatServer --> Employee: Customer's initial message
+    Employee --> ChatServer: Responds to Customer's message
+    ChatServer --> ChatClient: Employee's response
+else Employee is not available
+    ChatServer --> ChatClient: Employee is currently unavailable. Please try again later.
+end
+
 @enduml

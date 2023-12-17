@@ -27,6 +27,7 @@ rectangle "Fast Food System" {
   usecase (Manage Bill) as UC18
   usecase (Manage Store) as UC19
   usecase (Order Cancellation) as UC20
+  usecase (Create Order) as UC21
 }
 
 A -- UC8
@@ -53,5 +54,6 @@ UC3 <|.. UC4 : <<extend>>
 UC9 <|.. UC13: <<extend>>
 UC8 <|.. UC12: <<extend>>
 UC5 <|.. UC20: <<extend>>
+UC7 ..> UC21: <<include>>
 
 @enduml

@@ -9,11 +9,19 @@ User -> System : Enter credentials
 activate User
 activate System
 
-System -> Database : Check credentials
-activate Database
-Database --> System : Return result
-deactivate 
-System --> User : Display message
+alt Valid credentials
+    System -> Database : Check credentials
+    activate Database
+    Database --> System : Return result (valid)
+    deactivate Database
+    System --> User : Display success message
+else Invalid credentials
+    System -> Database : Check credentials
+    activate Database
+    Database --> System : Return result (invalid)
+    deactivate Database
+    System --> User : Display error message
+end
 
 deactivate System
 deactivate User

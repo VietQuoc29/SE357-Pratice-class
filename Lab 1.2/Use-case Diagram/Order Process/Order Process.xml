@@ -25,7 +25,7 @@ C --> UC15
 
 UC1 ..> UC2 : <<include>>
 UC1 ..> UC3 : <<include>>
-UC3 ..> UC4 : <<extend>>
-UC15 ..> UC6: <<extend>>
+UC3 <|.. UC4 : <<extend>>
+UC15 <|.. UC6: <<extend>>
 
 @enduml

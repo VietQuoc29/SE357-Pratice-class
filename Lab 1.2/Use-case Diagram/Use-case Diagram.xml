@@ -55,5 +55,5 @@ UC9 <|.. UC13: <<extend>>
 UC8 <|.. UC12: <<extend>>
 UC5 <|.. UC20: <<extend>>
 UC7 ..> UC21: <<include>>
-
+UC21 ..> UC3: <<include>>
 @enduml
